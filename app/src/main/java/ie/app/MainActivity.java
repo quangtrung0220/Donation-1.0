@@ -52,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
     public void donateButtonPressed (View view)
     {
         int amount = amountPicker.getValue();
-        Log.v("Donate", "Donate Pressed! with amount " + amount);
+        int radioId = paymentMethod.getCheckedRadioButtonId();
+        String method = radioId == R.id.PayPal ? "PayPal" : "Direct";
+        Log.v("Donate", "Donate Pressed! with amount " + amount + ", method: " +
+                method);
     }
 
     @Override
