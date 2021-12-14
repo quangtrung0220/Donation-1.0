@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -24,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(view ->
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
+
+        donateButton = (Button) findViewById(R.id.donateButton);
+        if (donateButton != null)
+        {
+            Log.v("Donate", "Really got the donate button");
+        }
     }
 
     @Override
