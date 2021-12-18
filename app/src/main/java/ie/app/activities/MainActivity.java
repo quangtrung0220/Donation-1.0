@@ -92,4 +92,5 @@ public class MainActivity extends Base {
             amountTotal.setText(totalDonatedStr);
         }
     }
+
 }

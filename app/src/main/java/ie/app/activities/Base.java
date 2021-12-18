@@ -59,6 +59,10 @@ public class Base extends AppCompatActivity
         }
         return true;
     }
+
+    public void reset(MenuItem item) {
+
+    }
 //    public void settings(MenuItem item)
 //    {
 //        Toast.makeText(this, "Settings Selected", Toast.LENGTH_SHORT).show();
