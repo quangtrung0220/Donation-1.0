@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_donate" tools:context=".MainActivity">
+    tools:showIn="@layout/activity_donate" tools:context=".activities.MainActivity">
 
     <TextView
         android:id="@+id/donateTitle"
@@ -20,7 +20,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="-1dp"
         android:fontFamily="sans-serif"
         android:text="@string/donateTitle"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -75,7 +75,9 @@
         android:id="@+id/amountPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/donateSubtitle" />
+        android:layout_alignEnd="@+id/donateSubtitle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="-2dp" />
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,4 +87,35 @@
         android:layout_alignEnd="@+id/donateSubtitle"
         android:layout_above="@+id/donateButton"
         android:indeterminate="false" />
+
+    <TextView
+        android:id="@+id/totalSoFar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/paymentMethod"
+        android:text="@string/totalSoFar"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.801" />
+
+    <EditText
+        android:id="@+id/paymentAmount"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
+        android:layout_toEndOf="@+id/donateButton"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.719"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
 </RelativeLayout>
