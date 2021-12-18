@@ -9,4 +9,8 @@
     <string name="direct">Direct</string>
 
     <string name="menuReport">Report</string>
+    <string name="reportTitle">Report</string>
+
+    <string name="menuDonate">Donate</string>
+
 </resources>
