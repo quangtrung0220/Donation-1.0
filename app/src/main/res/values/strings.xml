@@ -13,7 +13,9 @@
 
     <string name="menuDonate">Donate</string>
 
-    <string name="totalSoFar">$total</string>
+    <string name="amount">Amount</string>
+    <string name="total">Total so Far</string>
+    <string name="totalSoFar">$ Total</string>
 
     <string name="defaultAmount">00</string>
     <string name="defaultMethod">N/A</string>
