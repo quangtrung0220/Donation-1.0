@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,13 +42,21 @@ public class Base extends AppCompatActivity
         MenuItem reset = menu.findItem(R.id.menuReset);
         if(app.dbManager.getAll().isEmpty())
         {
-            report.setEnabled(false);
+            report.setEnabled(true);
             reset.setEnabled(false);
         }
         else {
             report.setEnabled(true);
             reset.setEnabled(true);
         }
+//        if(this instanceof Report){
+//            donate.setVisible(false);
+//            if(!app.dbManager.getAll().isEmpty())
+//            {
+//                report.setVisible(true);
+//                reset.setEnabled(true);
+//            }
+//        }
         if(this instanceof MainActivity){
             donate.setVisible(false);
             if(!app.dbManager.getAll().isEmpty())
@@ -59,7 +68,7 @@ public class Base extends AppCompatActivity
         else {
             report.setVisible(false);
             donate.setVisible(true);
-            reset.setVisible(false);
+            reset.setVisible(true);
         }
         return true;
     }
@@ -71,6 +80,12 @@ public class Base extends AppCompatActivity
     {
         startActivity (new Intent(this, MainActivity.class));
     }
-    public void reset(MenuItem item) {}
+    public void reset(MenuItem item) {
+        app.dbManager.reset();
+        app.totalDonated = 0;
+        report(item);
+        TextView amountTotal = (TextView) findViewById(R.id.totalSoFar);
+        amountTotal.setText("$" + app.totalDonated);
+    }
 }
 

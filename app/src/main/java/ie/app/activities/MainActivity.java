@@ -29,7 +29,7 @@ public class MainActivity extends Base {
     private NumberPicker amountPicker;
     private EditText amountText;
     private TextView amountTotal;
-    private int totalDonated = 0;
+    public int totalDonated = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,10 +95,4 @@ public class MainActivity extends Base {
         }
     }
 
-    public void reset(MenuItem item) {
-        totalDonated = 0;
-        progressBar.setProgress(totalDonated);
-        String totalDonatedStr = "$" + totalDonated;
-        amountTotal.setText(totalDonatedStr);
-    }
 }
