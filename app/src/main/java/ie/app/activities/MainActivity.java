@@ -19,8 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import ie.app.R;
-import ie.app.activities.Base;
-import ie.app.activities.Report;
+import ie.app.main.DonationApp;
 import ie.app.models.Donation;
 
 public class MainActivity extends Base {
@@ -30,6 +29,7 @@ public class MainActivity extends Base {
     private NumberPicker amountPicker;
     private EditText amountText;
     private TextView amountTotal;
+    private int totalDonated = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class MainActivity extends Base {
         amountPicker.setMaxValue(1000);
         progressBar.setMax(10000);
         amountTotal.setText("$0");
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -86,11 +87,18 @@ public class MainActivity extends Base {
         }
         if (donatedAmount > 0)
         {
-            newDonation(new Donation(donatedAmount, method));
+            app.newDonation(new Donation(donatedAmount, method));
             progressBar.setProgress(totalDonated);
+            totalDonated += donatedAmount;
             String totalDonatedStr = "$" + totalDonated;
             amountTotal.setText(totalDonatedStr);
         }
     }
 
+    public void reset(MenuItem item) {
+        totalDonated = 0;
+        progressBar.setProgress(totalDonated);
+        String totalDonatedStr = "$" + totalDonated;
+        amountTotal.setText(totalDonatedStr);
+    }
 }

@@ -103,25 +103,26 @@
         android:layout_toEndOf="@+id/donateButton"
         android:ems="10"
         android:inputType="number"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/total"
         android:id="@+id/textView"
-        android:layout_alignBottom="@+id/donateButton"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/totalSoFar"
+        android:layout_alignBottom="@+id/donateButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/total"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
         android:id="@+id/totalSoFar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView"
-        android:layout_alignEnd="@+id/paymentMethod" />
+        android:layout_alignEnd="@+id/paymentMethod"
+        android:text="@string/totalSoFar"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
 
