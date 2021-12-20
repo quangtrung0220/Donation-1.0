@@ -20,13 +20,13 @@ public class Base extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (DonationApp) getApplication();
-        app.dbManager.open();
-        app.dbManager.setTotalDonated(this);
+//        app.dbManager.open();
+//        app.donations.setTotalDonated(this);
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        app.dbManager.close();
+//        app.donations.close();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -40,7 +40,7 @@ public class Base extends AppCompatActivity
         MenuItem report = menu.findItem(R.id.menuReport);
         MenuItem donate = menu.findItem(R.id.menuDonate);
         MenuItem reset = menu.findItem(R.id.menuReset);
-        if(app.dbManager.getAll().isEmpty())
+        if(app.donations.isEmpty())
         {
             report.setEnabled(true);
             reset.setEnabled(false);
@@ -59,7 +59,7 @@ public class Base extends AppCompatActivity
 //        }
         if(this instanceof MainActivity){
             donate.setVisible(false);
-            if(!app.dbManager.getAll().isEmpty())
+            if(!app.donations.isEmpty())
             {
                 report.setVisible(true);
                 reset.setEnabled(true);
@@ -81,11 +81,13 @@ public class Base extends AppCompatActivity
         startActivity (new Intent(this, MainActivity.class));
     }
     public void reset(MenuItem item) {
-        app.dbManager.reset();
+        app.donations.clear();
         app.totalDonated = 0;
         report(item);
         TextView amountTotal = (TextView) findViewById(R.id.totalSoFar);
         amountTotal.setText("$" + app.totalDonated);
     }
+
+
 }
 
