@@ -2,16 +2,18 @@ package ie.app.main;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Application;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import ie.app.activities.MainActivity;
 import ie.app.models.Donation;
 
-public class DonationApp extends Application
-{
+public class DonationApp extends Application {
     public final int target = 10000;
     public int totalDonated = 0;
-    public List <Donation> donations = new ArrayList<Donation>();
+    public List<Donation> donations = new ArrayList<Donation>();
+
     public boolean newDonation(Donation donation)
     {
         boolean targetAchieved = totalDonated > target;
@@ -26,13 +28,11 @@ public class DonationApp extends Application
         }
         return targetAchieved;
     }
+
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         Log.v("Donate", "Donation App Started");
     }
-
-
 }
 
